@@ -1,0 +1,378 @@
+###########################
+# Purpose-Driven Minor Nations Mod Events
+# Ethiopia
+###########################
+add_namespace = PDMN_ETH
+
+# War Decision
+country_event = {
+	id = PDMN_ETH.1
+	title = PDMN_ETH.1.t
+	desc = PDMN_ETH.1.d
+	picture = GFX_report_event_soldiers_marching
+
+	fire_only_once = yes
+
+	# have we conquered something
+	trigger = {
+		tag = ETH
+		is_puppet = no
+		has_capitulated = no
+		has_defensive_war_with = ITA
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = { # surrender
+		name = PDMN_ETH.1.a
+		ITA = { country_event = PDMN_ETH.2 }
+	}
+	option = { # resist
+		name = PDMN_ETH.1.b
+		add_country_leader_trait = cornered_fox staunch_monarchist popular_figurehead
+		set_country_flag = PDMN_ETH_defiant
+		set_country_flag = PDMN_ETH_no_peace
+	}
+}
+
+# Italy: Ethiopia asks for Peace.
+country_event = {
+	id = PDMN_ETH.2
+	title = PDMN_ETH.2.t
+	desc = PDMN_ETH.2.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	option = { # accept
+		name = PDMN_ETH.2.a
+		puppet = ITA
+	}
+	option = { # reject
+		name = PDMN_ETH.2.b
+		ai_chance = { factor = 0 }
+		ETH = {
+			country_event = PDMN_ETH.4
+			set_country_flag = PDMN_ETH_rejected
+			set_country_flag = PDMN_ETH_no_peace
+		}
+	}
+}
+
+# Italy: Ethiopia wants War.
+country_event = {
+	id = PDMN_ETH.3
+	title = PDMN_ETH.3.t
+	desc = PDMN_ETH.3.d
+	picture = GFX_report_event_african_soldiers
+
+	is_triggered_only = yes
+
+	immediate = {
+	}
+
+	option = {
+		name = PDMN_ETH.3.a
+	}
+}
+# Peace offer rejected.
+country_event = {
+	id = PDMN_ETH.4
+	title = PDMN_ETH.4.t
+	desc = PDMN_ETH.4.d
+	picture = GFX_report_event_soldiers_marching
+
+	is_triggered_only = yes
+
+	immediate = {
+	}
+
+	option = {
+		name = PDMN_ETH.4.a
+		add_country_leader_trait = cornered_fox
+	}
+}
+
+# League of Nations
+country_event = {
+	id = PDMN_ETH.5
+
+	is_triggered_only = yes
+
+	is_hidden = yes
+
+	immediate = {
+		every_country = {
+			limit = {
+				NOT = {
+					tag = ETH
+				}
+				OR = {
+					# north america
+					tag = CAN
+					tag = MEX
+					tag = CUB
+					tag = PAN
+					tag = HAI
+					tag = DOM
+
+					# south america
+					tag = VEN
+					tag = COL
+					tag = ECU
+					tag = PRU
+					tag = BOL
+					tag = CHL
+					tag = ARG
+					tag = URG
+
+					# africa
+					tag = LIB
+					tag = SAF
+
+					# middle east
+					tag = IRQ
+					tag = AFG
+					tag = PER
+					tag = TUR
+
+					# asia
+					tag = CHI
+					tag = SIA
+					tag = RAJ
+					tag = AST
+					tag = NZL
+
+					# eastern europe
+					tag = GRE
+					tag = ALB
+					tag = HUN
+					tag = ROM
+					tag = YUG
+					tag = AUS
+					tag = CZE
+					tag = SOV
+					tag = POL
+					tag = LAT
+					tag = EST
+					tag = LIT
+					tag = FIN
+					tag = SWE
+					tag = NOR
+
+					# western europe
+					tag = SWI
+					tag = ENG
+					tag = IRE
+					tag = FRA
+					tag = SPR
+					tag = POR
+
+					# non-members
+					tag = GER
+				}
+			}
+
+			country_event = PDMN_ETH.6
+		}
+	}
+}
+
+# Beg
+country_event = {
+	id = PDMN_ETH.6
+	title = PDMN_ETH.6.t
+	desc = PDMN_ETH.6.d
+	picture = GFX_report_event_generic_lend_lease
+
+	is_triggered_only = yes
+
+	# nothing
+	option = {
+		name = PDMN_ETH.6.a
+		ai_chance = {
+			base = 6
+			modifier = {
+				add = 6
+				# Ethiopia was largely ignored by the League of Nations.
+				# The Italian's invasion of Ethiopia, and the subsequent
+				# inability to stop it, contributed to its downfall.
+				AND = { is_historical_focus_on = yes }
+			}
+			reverse_add_opinion_modifier = { target = ETH modifier = PDMN_denied_help }
+		}
+	}
+	# manpower
+	option = {
+		name = PDMN_ETH.6.b_manpower
+		trigger = { has_manpower > 7500 }
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 2
+				OR = { has_manpower > 250000 }
+			}
+			modifier = {
+				add = 6
+				AND = {
+					is_historical_focus_on = yes
+					OR  = {
+						tag = SOV
+						tag = CUB
+						tag = BEL
+						tag = AUS
+					}
+				}
+			}
+		}
+		ROOT = {
+			add_manpower = -7500
+		}
+		ETH = {
+			add_manpower = 7500
+			country_event = PDMN_ETH.7
+		}
+	}
+	# weapons
+	option = {
+		name = PDMN_ETH.6.b_equipment
+		trigger = { has_equipment = { infantry_equipment > 1000 } }
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 4
+				OR = {
+					has_equipment = { infantry_equipment > 1500 }
+					num_of_military_factories > 10
+				}
+			}
+			modifier = {
+				add = 4
+				AND = {
+					tag = GER
+					is_historical_focus_on = yes
+				}
+			}
+		}
+		send_equipment = { target = ETH type = infantry_equipment amount = 1000 }
+		ETH = {
+			country_event = PDMN_ETH.8
+		}
+	}
+	# FRANCE: Ace Pilot (yes, really)
+	option = {
+		name = PDMN_ETH.6.b_ace
+		trigger = { tag = FRA }
+		ai_chance = {
+			base = 6
+			modifier = {
+				add = 6
+				AND = { is_historical_focus_on = yes }
+			}
+		}
+		ETH = {
+			country_event = PDMN_ETH.9
+			add_ace = {
+				name = "Pierre"
+				surname = "Corriger"
+				callsign = "Baguette"
+				type = fighter_genius
+			}
+		}
+	}
+	# SWITZERLAND: Commander
+	option = {
+		name = PDMN_ETH.6.b_commander
+		trigger = { tag = SWI }
+		ai_chance = {
+			base = 6
+			modifier = {
+				add = 6
+				AND = { is_historical_focus_on = yes }
+			}
+		}
+		ETH = {
+			country_event = PDMN_ETH.10
+			create_corps_commander = {
+				name = "Viking Tamm"
+				gfx = "GFX_Portrait_Europe_Generic_land_3"
+				traits = {
+					army_concealment_3
+					army_logistics_3
+					army_entrenchment_3
+				}
+				skill = 4
+			}
+		}
+	}
+}
+# Manpower
+country_event = {
+	id = PDMN_ETH.7
+	title = PDMN_ETH.7.t
+	desc = PDMN_ETH.7.d
+	picture = GFX_report_event_generic_army
+
+	is_triggered_only = yes
+
+	option = {
+		name = PDMN_ETH.7.a
+		add_opinion_modifier = { target = FROM modifier = PDMN_given_help }
+		effect_tooltip = {
+			add_manpower = 7500
+		}
+	}
+}
+# Equipment
+country_event = {
+	id = PDMN_ETH.8
+	title = PDMN_ETH.8.t
+	desc = PDMN_ETH.8.d
+	picture = GFX_report_event_generic_lend_lease
+
+	is_triggered_only = yes
+
+	option = {
+		name = PDMN_ETH.8.a
+		add_opinion_modifier = { target = FROM modifier = PDMN_given_help }
+		effect_tooltip = {
+			add_equipment_to_stockpile = { type = infantry_equipment amount = 1000 producer = FROM }
+		}
+	}
+}
+# Ace
+country_event = {
+	id = PDMN_ETH.9
+	title = PDMN_ETH.9.t
+	desc = PDMN_ETH.9.d
+	picture = GFX_report_event_generic_lend_lease
+
+	is_triggered_only = yes
+
+	option = {
+		name = PDMN_ETH.9.a
+		add_opinion_modifier = { target = FROM modifier = PDMN_given_help }
+		effect_tooltip = {
+			add_ace = { name = "Pierre" surname = "Corriger" callsign = "Baguette" type = fighter_genius }
+		}
+	}
+}
+# Swiss General
+country_event = {
+	id = PDMN_ETH.10
+	title = PDMN_ETH.10.t
+	desc = PDMN_ETH.10.d
+	picture = GFX_report_event_british_inspect_troops
+
+	is_triggered_only = yes
+
+	option = {
+		name = PDMN_ETH.10.a
+		add_opinion_modifier = { target = FROM modifier = PDMN_given_help }
+		effect_tooltip = {
+			create_corps_commander = { name = "Viking Tamm gfx = "GFX_Portrait_Europe_Generic_land_3" }
+		}
+	}
+}

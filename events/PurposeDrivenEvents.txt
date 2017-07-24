@@ -1,0 +1,38 @@
+###########################
+# Purpose-Driven Minor Nations Mod Events
+###########################
+add_namespace = PDMN
+
+# "Borders Expand" Leader Trait
+country_event = {
+	id = PDMN.1
+	title = PDMN.1.t
+	desc = PDMN.1.d
+	picture = GFX_report_event_soldiers_marching
+
+	fire_only_once = yes
+
+    # have we conquered something
+	trigger = {
+		is_ai = no
+		any_owned_state = {
+			NOT = {
+				is_core_of = ROOT
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = { # prince of terror
+		name = PDMN.1.a
+		add_country_leader_trait = prince_of_terror
+
+	}
+	option = { # captain of industry
+		name = PDMN.1.b
+		add_country_leader_trait = captain_of_industry
+	}
+}

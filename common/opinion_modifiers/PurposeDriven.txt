@@ -1,0 +1,20 @@
+#########################################################################
+# OPINION MODIFIERS
+##########################################################################
+# value
+# min_trust
+# max_trust
+# decay
+# months/years/days = timer
+# trade = yes/no
+
+opinion_modifiers = {
+	PDMN_denied_help = {
+		value = -5
+		years = 1
+	}
+	PDMN_given_help = {
+		value = 10
+		years = 10
+	}
+}
