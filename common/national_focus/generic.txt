@@ -855,7 +855,7 @@ focus_tree = {
 		y = 3
 		cost = 10
 		complete_tooltip = {
-			tooltip = PDMN_aluminium_mine_tt
+			#tooltip = PDMN_aluminium_mine_tt
 		}
 		completion_reward = { # aluminium in a state, more on certain continents
 			if = {

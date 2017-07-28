@@ -1,0 +1,26 @@
+state={
+	id=745
+	name="STATE_745"
+
+	state_category = city
+
+	history={
+		owner = XNX
+		buildings = {
+			infrastructure = 7
+			dockyard = 2
+		}
+		add_core_of = XNX
+		#victory_points = {
+		#	6732 20
+		#}
+
+	}
+
+	provinces={
+		733 3712 3715 10481
+	}
+
+	manpower=481000
+	buildings_max_level_factor=1.000
+}

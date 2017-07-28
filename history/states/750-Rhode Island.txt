@@ -1,0 +1,21 @@
+state={
+	id=750
+	name="STATE_750"
+	history={
+		owner = XMD
+		buildings = {
+			infrastructure = 7
+			dockyard = 2
+		}
+		add_core_of = XMD
+		#victory_points = {
+		#	6732 20
+		#}
+
+	}
+	provinces={
+		11830
+	}
+	manpower=686000
+	buildings_max_level_factor=1.000
+}

@@ -1,0 +1,21 @@
+state={
+	id=748
+	name="STATE_748"
+	state_category = large_city
+
+	history={
+		owner = XNX
+		buildings = {
+			infrastructure = 7
+			dockyard = 2
+		}
+		add_core_of = XNX
+	}
+
+	provinces={
+		6909 9832 9847 9850
+	}
+
+	manpower=1672000
+	buildings_max_level_factor=1.000
+}
