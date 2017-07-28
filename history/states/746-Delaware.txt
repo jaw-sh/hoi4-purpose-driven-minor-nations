@@ -1,6 +1,7 @@
 state={
 	id=746
 	name="STATE_746"
+	state_category = large_city
 	history={
 		owner = XNX
 		buildings = {
