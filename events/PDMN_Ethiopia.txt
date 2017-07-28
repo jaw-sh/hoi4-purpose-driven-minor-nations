@@ -13,27 +13,38 @@ country_event = {
 
 	fire_only_once = yes
 
-	# have we conquered something
 	trigger = {
 		tag = ETH
 		is_puppet = no
 		has_capitulated = no
 		has_defensive_war_with = ITA
 	}
-
 	mean_time_to_happen = {
 		days = 1
 	}
-
 	option = { # surrender
 		name = PDMN_ETH.1.a
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
 		ITA = { country_event = PDMN_ETH.2 }
 	}
 	option = { # resist
 		name = PDMN_ETH.1.b
-		add_country_leader_trait = cornered_fox staunch_monarchist popular_figurehead
+		ai_chance = {
+			base = 1
+		}
+		ITA = { country_event = PDMN_ETH.3 }
+		add_country_leader_trait = cornered_fox
+		add_country_leader_trait = staunch_monarchist
+		add_country_leader_trait = popular_figurehead
 		set_country_flag = PDMN_ETH_defiant
 		set_country_flag = PDMN_ETH_no_peace
+		add_ideas = sisu
 	}
 }
 
@@ -48,11 +59,18 @@ country_event = {
 
 	option = { # accept
 		name = PDMN_ETH.2.a
+		ai_chance = { base = 1 }
 		puppet = ITA
 	}
 	option = { # reject
 		name = PDMN_ETH.2.b
-		ai_chance = { factor = 0 }
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 0
+				ETH = { is_ai = no }
+			}
+		}
 		ETH = {
 			country_event = PDMN_ETH.4
 			set_country_flag = PDMN_ETH_rejected
@@ -71,6 +89,7 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
+		ETH = { country_event = { days = 7 id = PDMN_ETH.5 } }
 	}
 
 	option = {
@@ -87,6 +106,7 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
+		ETH = { country_event = { days = 7 id = PDMN_ETH.5 } }
 	}
 
 	option = {
@@ -101,7 +121,7 @@ country_event = {
 
 	is_triggered_only = yes
 
-	is_hidden = yes
+	hidden = yes
 
 	immediate = {
 		every_country = {
@@ -193,29 +213,29 @@ country_event = {
 	option = {
 		name = PDMN_ETH.6.a
 		ai_chance = {
-			base = 6
+			base = 10
 			modifier = {
-				add = 6
+				add = 5
 				# Ethiopia was largely ignored by the League of Nations.
-				# The Italian's invasion of Ethiopia, and the subsequent
-				# inability to stop it, contributed to its downfall.
-				AND = { is_historical_focus_on = yes }
+				# Italy's invasion of Ethiopia, and the League's inability to
+				# stop it, contributed to its downfall.
+				is_historical_focus_on = yes
 			}
-			reverse_add_opinion_modifier = { target = ETH modifier = PDMN_denied_help }
 		}
+		reverse_add_opinion_modifier = { target = ETH modifier = PDMN_denied_help }
 	}
 	# manpower
 	option = {
 		name = PDMN_ETH.6.b_manpower
-		trigger = { has_manpower > 7500 }
+		trigger = { has_manpower > 5000 }
 		ai_chance = {
 			base = 0
 			modifier = {
-				add = 2
-				OR = { has_manpower > 250000 }
+				add = 5
+				has_manpower > 205000
 			}
 			modifier = {
-				add = 6
+				add = 8
 				AND = {
 					is_historical_focus_on = yes
 					OR  = {
@@ -227,29 +247,32 @@ country_event = {
 				}
 			}
 		}
-		ROOT = {
-			add_manpower = -7500
-		}
+		add_manpower = -5000
 		ETH = {
-			add_manpower = 7500
+			add_manpower = 5000
 			country_event = PDMN_ETH.7
 		}
 	}
 	# weapons
 	option = {
 		name = PDMN_ETH.6.b_equipment
-		trigger = { has_equipment = { infantry_equipment > 1000 } }
+		trigger = {
+			OR = {
+				num_of_military_factories > 5
+				has_equipment = { infantry_equipment > 1000 }
+			}
+		}
 		ai_chance = {
 			base = 0
 			modifier = {
-				add = 4
+				add = 5
 				OR = {
 					has_equipment = { infantry_equipment > 1500 }
 					num_of_military_factories > 10
 				}
 			}
 			modifier = {
-				add = 4
+				add = 8
 				AND = {
 					tag = GER
 					is_historical_focus_on = yes
@@ -266,10 +289,10 @@ country_event = {
 		name = PDMN_ETH.6.b_ace
 		trigger = { tag = FRA }
 		ai_chance = {
-			base = 6
+			base = 5
 			modifier = {
-				add = 6
-				AND = { is_historical_focus_on = yes }
+				add = 10
+				is_historical_focus_on = yes
 			}
 		}
 		ETH = {
@@ -287,9 +310,9 @@ country_event = {
 		name = PDMN_ETH.6.b_commander
 		trigger = { tag = SWI }
 		ai_chance = {
-			base = 6
+			base = 5
 			modifier = {
-				add = 6
+				add = 10
 				AND = { is_historical_focus_on = yes }
 			}
 		}
@@ -297,13 +320,12 @@ country_event = {
 			country_event = PDMN_ETH.10
 			create_corps_commander = {
 				name = "Viking Tamm"
-				gfx = "GFX_Portrait_Europe_Generic_land_3"
+				portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_3.dds"
 				traits = {
-					army_concealment_3
-					army_logistics_3
-					army_entrenchment_3
+					hill_fighter
+					trait_mountaineer
 				}
-				skill = 4
+				skill = 5
 			}
 		}
 	}
@@ -337,9 +359,6 @@ country_event = {
 	option = {
 		name = PDMN_ETH.8.a
 		add_opinion_modifier = { target = FROM modifier = PDMN_given_help }
-		effect_tooltip = {
-			add_equipment_to_stockpile = { type = infantry_equipment amount = 1000 producer = FROM }
-		}
 	}
 }
 # Ace
@@ -371,8 +390,33 @@ country_event = {
 	option = {
 		name = PDMN_ETH.10.a
 		add_opinion_modifier = { target = FROM modifier = PDMN_given_help }
-		effect_tooltip = {
-			create_corps_commander = { name = "Viking Tamm gfx = "GFX_Portrait_Europe_Generic_land_3" }
+	}
+}
+
+
+# Ethiopia falls
+country_event = {
+	id = PDMN_ETH.11
+
+	fire_only_once = yes
+
+	hidden = yes
+
+	trigger = {
+		tag = ETH
+		OR = {
+			is_puppet = yes
+			has_capitulated = yes
 		}
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+	immediate = {
+		remove_country_leader_trait = cornered_fox
+		remove_country_leader_trait = staunch_monarchist
+		remove_country_leader_trait = popular_figurehead
+		remove_ideas = sisu
+		set_country_flag = PDMN_ETH_defeated
 	}
 }

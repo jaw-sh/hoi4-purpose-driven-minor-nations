@@ -1,0 +1,73 @@
+ideas = {
+	country = {
+		##
+		# Switzerland
+		##
+		# Out of Supply
+		PDMN_SWI_out_of_supply_idea = {
+			picture = risk_of_famine
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+
+			modifier = {
+				out_of_supply_factor = -0.50
+			}
+		}
+
+		##
+		# Manchukuo
+		##
+		# Horrified
+		PDMN_MAN_horrified_idea = {
+			picture = idea_saf_history_of_segregation
+
+			allowed = {
+				hidden_trigger = { has_dlc = "Together for Victory" }
+				original_tag = MAN
+				is_subject_of = JAP
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				autonomy_gain = 0.25
+			}
+		}
+
+		##
+		# USA
+		##
+		# Charles Coughlin (National Spirit)
+		PDMN_USA_charles_coughlin_idea = {
+			picture = charles_coughlin
+			name = charles_coughlin
+
+			allowed = {
+				original_tag = USA
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			traits = {
+				fascist_demagogue
+			}
+		}
+	}
+}

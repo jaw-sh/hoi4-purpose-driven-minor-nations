@@ -1,0 +1,33 @@
+###########################
+# Purpose-Driven Minor Nations Mod Events
+# Manchukuo Events
+###########################
+add_namespace = PDMN_MAN
+
+# Manchukuo: Water Purification
+country_event = {
+    id = PDMN_MAN.1
+    title = PDMN_MAN.1.t
+    desc = PDMN_MAN.1.d
+    picture = GFX_news_event_generic_factory
+
+    fire_only_once = yes
+
+    trigger = { # Manchukuo as a puppet
+        hidden_trigger = { has_dlc = "Together for Victory" }
+        tag = MAN
+        is_puppet_of = JAP
+    }
+    mean_time_to_happen = {
+        months = 1
+    }
+    option = { # accept it
+        name = PDMN_MAN.1.a
+    }
+    option = { # ask questions
+        name = PDMN_MAN.1.b
+        OVERLORD = {
+            country_event = PDMN_MAN.2
+        }
+    }
+}

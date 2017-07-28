@@ -1,0 +1,57 @@
+###########################
+# Purpose-Driven Minor Nations Mod Events
+# Swiss Events
+###########################
+add_namespace = PDMN_SWI
+
+# Switzerland: Destroy infrastructure for buffs
+country_event = {
+	id = PDMN_SWI.1
+	title = PDMN_SWI.1.t
+	desc = PDMN_SWI.1.d
+	picture = GFX_report_event_generic_panzer_attack
+
+	fire_only_once = yes
+
+	trigger = { # China without German advisors
+		tag = SWI
+		has_defensive_war = yes
+		OR = {
+			any_war_score < 0.5
+			enemies_strength_ratio > 1.5
+		}
+		any_neighbor_country = {
+			has_war_with = ROOT
+		}
+		has_idea = deterrence
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+	option = { # defiance
+		name = PDMN_SWI.1.a
+		ai_chance = {
+			factor = 10
+		}
+		every_owned_state = {
+			limit = { is_core_of = ROOT }
+			damage_building = {
+				type = infrastructure
+				damage = 10
+			}
+		}
+		add_timed_idea = {
+			idea = PDMN_SWI_out_of_supply_idea
+			days = 365
+		}
+	}
+	option = { # ignore
+		name = PDMN_SWI.1.b
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}

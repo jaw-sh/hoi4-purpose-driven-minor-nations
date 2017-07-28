@@ -1,0 +1,24 @@
+###########################
+# Purpose-Driven Minor Nations Mod Events
+# Japan Events
+###########################
+add_namespace = PDMN_JAP
+
+# Japan: Water Purification (First Response)
+country_event = {
+    id = PDMN_JAP.1
+    title = PDMN_JAP.1.t
+    desc = PDMN_JAP.1.d
+    picture = GFX_report_event_generic_factory
+
+    fire_only_once = yes
+
+    is_triggered_only = yes
+
+    option = { # lie to them
+        name = PDMN_JAP.1.a
+    }
+    option = { # tell them
+        name = PDMN_JAP.1.b
+    }
+}

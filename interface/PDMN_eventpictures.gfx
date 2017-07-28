@@ -1,0 +1,15 @@
+spriteTypes = {
+
+	# Coughlin facing forward to large audience from stage
+	spriteType = {
+		name = "GFX_report_coughlin_rally"
+		texturefile = "gfx/event_pictures/news_event_coughlin_rally.dds"
+	}
+
+	# Upshot of Coughlin at podium shaking fists
+	spriteType = {
+		name = "GFX_report_coughlin_smash"
+		texturefile = "gfx/event_pictures/news_event_coughlin_smash.dds"
+	}
+
+}

@@ -1,0 +1,188 @@
+###########################
+# Purpose-Driven Minor Nations Mod Events
+# USA Events
+###########################
+add_namespace = PDMN_USA
+
+# USA: Coughlin (A New Fascism)
+# Adds Coughlin as a national spirit, not an advisor.
+country_event = {
+	id = PDMN_USA.1
+	title = PDMN_USA.1.t
+	desc = PDMN_USA.1.d
+	picture = GFX_report_event_generic_rally_3 # TODO
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = USA
+		has_civil_war = no
+		date < 1940.1.1
+		NOT = {
+			has_government = fascism
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 7
+	}
+
+	immediate = {
+		add_ideas = PDMN_USA_charles_coughlin_idea
+	}
+
+	option = { # Coughlin allowed to continue unabated.
+		name = PDMN_USA.1.a
+		hidden_effect = { set_country_flag = USA_tolerates_coughlin }
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.05
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					# Historically we always never want to support Coughlin,
+					# but FDR will hate him no matter what.
+					is_historical_focus_on = yes
+					has_country_leader = { name = "Franklin Delano Roosevelt" }
+				}
+			}
+		}
+	}
+	# Both options require player to pay for Democratic Reformer to combat Coughlin.
+	option = {
+		name = PDMN_USA.1.b
+		trigger = { NOT = {
+			has_country_leader = { name = "Franklin Delano Roosevelt" }
+		} }
+		hidden_effect = { set_country_flag = USA_combats_coughlin }
+		add_ideas = harold_ickes
+		add_political_power = -150
+	}
+	option = {
+		name = PDMN_USA.1.b_fdr
+		trigger = {
+			has_country_leader = { name = "Franklin Delano Roosevelt" }
+		}
+		hidden_effect = { set_country_flag = USA_combats_coughlin }
+		add_ideas = harold_ickes
+		add_political_power = -150
+	}
+}
+
+# USA: Coughlin (The Empire Strikes Back)
+# Government begins to push back against Coughlin.
+# In 1936~1937, Coughlin was denounced by a number of Roman Catholic priests.
+# This did nothing to hurt him.
+country_event = {
+	id = PDMN_USA.2
+	title = PDMN_USA.2.t
+	desc = PDMN_USA.2.d
+	picture = GFX_report_event_generic_rally_3
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = USA
+		has_civil_war = no
+		has_country_flag = USA_combats_coughlin
+		NOT = {
+			has_government = fascism
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 18
+	}
+
+	option = { # Coughlin allowed to continue unabated.
+		name = PDMN_USA.1.a
+		hidden_effect = { set_country_flag = USA_tolerates_coughlin }
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.05
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					is_historical_focus_on = yes
+					has_country_leader = { name = "Franklin Delano Roosevelt" }
+				}
+			}
+		}
+	}
+	option = { # Gov't pressures Catholics into not accepting him.
+		name = PDMN_USA.2.b
+		hidden_effect = { set_country_flag = USA_combats_coughlin }
+		add_political_power = -50
+		if = {
+			# Historic probability
+			limit = { is_historical_focus_on = yes }
+			random_list = {
+				10 = { news_event = { days = 7 id = PDMN_news.5 } } # backfire
+				90 = { news_event = { days = 7 id = PDMN_news.6 } } # success
+			}
+			# Ahistoric probability
+			else  = {
+				random_list = {
+					25 = { news_event = { days = 7 id = PDMN_news.5 } }
+					75 = { news_event = { days = 7 id = PDMN_news.6 } }
+				}
+			}
+		}
+	}
+}
+
+# Civil War Trigger
+country_event = {
+	id = PDMN_USA.3
+
+	hidden = yes
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	immediate = {
+		news_event = PDMN_news.7
+	}
+}
+
+# FDR Execution Trigger
+country_event = {
+	id = PDMN_USA.4
+
+	fire_only_once = yes
+
+	hidden = yes
+
+	trigger = {
+		TAG = USA
+		has_civil_war = yes
+		has_country_leader = { name = "Franklin Delano Roosevelt" }
+		any_enemy_country = {
+			original_tag = USA
+			has_country_leader = { name = "Charles Coughlin" }
+			controls_state = 361
+		}
+	}
+
+	immediate = {
+		kill_country_leader = yes
+
+		create_country_leader = {
+			name = "Harry S. Truman"
+			desc = "POLITICS_HARRY_TRUMAN_DESC"
+			picture = "Portrait_USA_Harry_Truman.dds"
+			expire = "1965.1.1"
+			ideology = liberalism
+			traits = { }
+		}
+
+		news_event = PDMN_news.8
+	}
+}

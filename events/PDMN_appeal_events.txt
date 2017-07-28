@@ -1,0 +1,187 @@
+###########################
+# Purpose-Driven Minor Nations Mod Events
+# Fascist Event Chains
+###########################
+add_namespace = PDMN_AFAS
+
+##
+# Event Sequence Start
+##
+
+# Appeal trigger from focus
+# Binds the sponsor country as "sponsor"
+country_event = {
+	id = PDMN_AFAS.1
+
+	fire_only_once = yes
+
+	hidden = yes
+
+	immediate = {
+		save_event_target_as = sponsor
+		FROM = {
+			country_event = PDMN_AFAS.3
+		}
+	}
+}
+
+# No viable majors
+country_event = {
+	id = PDMN_AFAS.2
+	title = PDMN_AFAS.2.t
+	desc = PDMN_AFAS.2.d
+	picture = GFX_report_event_generic_rally
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = PDMN_AFAS.2.a
+		add_ideas = fascist_influence
+	}
+}
+
+# Sponsored notification
+# Binds the recipient country tag as "sponsored"
+country_event = {
+	id = PDMN_AFAS.3
+	title = PDMN_AFAS.3.t
+	desc = PDMN_AFAS.3.d
+	picture = GFX_report_event_hitler_handshake
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		save_event_target_as = sponsored
+		hidden_effect = {
+			event_target:sponsor = {
+				country_event = PDMN_AFAS.4
+			}
+		}
+	}
+
+	option = {
+		name = PDMN_AFAS.3.a
+		add_ideas = fascist_influence
+	}
+}
+
+##
+# Event Cycle
+##
+
+# These events triggers repeatedly for the sponsor, prompting them to decide
+# what they want the sponsored country to do.
+
+# Development
+country_event = {
+	id = PDMN_AFAS.4
+	title = PDMN_AFAS.4.t
+	desc = PDMN_AFAS.4.d
+	picture = GFX_report_event_hitler_handshake
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		name = PDMN_AFAS.4.a
+		trigger = { FROM = { NOT = { has_idea = german_advisors } } }
+		#add_political_power = -25
+		hidden_effect = {
+			event_target:sponsored = {
+				country_event = {
+					id = PDMN_AFAS.10
+					days = 7
+				}
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = { # Germany wants to send generals immediately
+				factor = 2
+				TAG = GER
+			}
+		}
+	}
+	option = {
+		name = PDMN_AFAS.4.b
+		#add_political_power = -25
+		event_target:sponsored = {
+			hidden_effect = { clr_country_flag = PDMN_SUP_resource_determined }
+			country_event = {
+				id = PDMN_AFAS.5
+				days = 7
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+	option = {
+		name = PDMN_AFAS.4.x
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+##
+# Development events
+##
+
+# Development Notice (can be rejected)
+country_event = {
+	id = PDMN_AFAS.5
+	title = PDMN_AFAS.5.t
+	desc = PDMN_AFAS.5.d
+	picture = GFX_report_event_hitler_handshake
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	option = {
+		name = PDMN_AFAS.5.a
+		hidden_effect = {
+			set_country_flag = PDMN_SUP_resource_accepted
+			if = {
+				# rubber & oil
+				limit = { can_have_oil = yes can_have_rubber = yes }
+				set_country_flag = PDMN_SUP_resource_determined
+				random_list = {
+					25 = { news_event = PDMN_news.1 }
+					25 = { news_event = PDMN_news.2 }
+					25 = { news_event = PDMN_news.3 }
+					25 = { news_event = PDMN_news.4 }
+				}
+			}
+			if = {
+				# !rubber & oil
+				limit = { can_have_oil = yes can_have_rubber = no NOT = { has_country_flag = PDMN_SUP_resource_determined } }
+				set_country_flag = PDMN_SUP_resource_determined
+				random_list = {
+					10 = { news_event = PDMN_news.1 }
+					33 = { news_event = PDMN_news.2 }
+					33 = { news_event = PDMN_news.3 }
+					33 = { news_event = PDMN_news.4 }
+				}
+			}
+			if = {
+				# !rubber & !oil
+				limit = { can_have_oil = yes can_have_rubber = no NOT = { has_country_flag = PDMN_SUP_resource_determined } }
+				set_country_flag = PDMN_SUP_resource_determined
+				random_list = {
+					10 = { news_event = PDMN_news.1 }
+					10 = { news_event = PDMN_news.2 }
+					50 = { news_event = PDMN_news.3 }
+					50 = { news_event = PDMN_news.4 }
+				}
+			}
+		}
+	}
+	option = {
+		name = PDMN_AFAS.5.b
+	}
+}

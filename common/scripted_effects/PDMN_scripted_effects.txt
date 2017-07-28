@@ -1,0 +1,7 @@
+PDMN_USA_create_christian_front = {
+	set_party_name = {
+		ideology = fascism
+		long_name = PDMN_USA_christian_front
+		name = PDMN_USA_christian_front
+	}
+}

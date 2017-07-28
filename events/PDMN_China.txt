@@ -1,0 +1,69 @@
+###########################
+# Purpose-Driven Minor Nations Mod Events
+# Chinese Events
+###########################
+add_namespace = PDMN_CHI
+add_namespace = PDMN_PRC
+
+# China: American Option
+country_event = {
+	id = PDMN_CHI.1
+	title = PDMN_CHI.1.t
+	desc = PDMN_CHI.1.d
+	picture = GFX_report_event_generic_usa_treaty
+
+	fire_only_once = yes
+
+	trigger = { # China without German advisors
+		tag = CHI
+		has_war = no
+		is_in_faction = no
+		NOT = { has_idea = german_advisors }
+		USA = { NOT = { has_government = communism } }
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+	option = { # cuddle with US
+		name = PDMN_CHI.1.a
+		USA = {
+			if = {
+				limit = { has_government = democratic }
+				ROOT = {
+					if = {
+						limit = { has_government = democratic }
+						add_ideas = american_influence_defence_democratic
+					}
+					if = {
+						limit = { NOT = { has_government = democratic } }
+						add_ideas = american_influence_drift_democratic
+					}
+				}
+			}
+			if = {
+				limit = { has_government = fascism }
+				ROOT = {
+					if = {
+						limit = { has_government = fascism }
+						add_ideas = american_influence_defence_fascism
+					}
+					if = {
+						limit = { NOT = { has_government = fascism } }
+						add_ideas = american_influence_drift_fascism
+					}
+				}
+			}
+		}
+	}
+	option = { # reject us
+		name = PDMN_CHI.1.b
+		add_political_power = 150
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}

@@ -1,0 +1,133 @@
+ideas = {
+	country = {
+		##
+		# Aviation
+		##
+		PDMN_night_witches_idea = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = combined_bomber_offensive
+
+			modifier = {
+				air_night_penalty = -0.25
+			}
+
+		}
+
+		##
+		# Nationalism
+		##
+		PDMN_militarism_idea = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = fascism
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				conscription = 0.02
+				enemy_partisan_effect = -0.1
+			}
+		}
+		PDMN_military_youth_idea = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				OR = {
+					has_government = communism
+					has_government = fascism
+				}
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				conscription = 0.05
+				training_time_army_factor = -0.1
+			}
+		}
+
+		##
+		# Internationalism
+		##
+		PDMN_political_correctness_idea = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_intel_bonus
+
+			modifier = {
+				foreign_subversive_activites = -0.75
+			}
+		}
+		PDMN_political_commissars_idea = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				OR = {
+					has_government = communism
+					has_government = fascism
+				}
+			}
+
+			removal_cost = -1
+
+			picture = generic_morale_bonus
+
+			modifier = {
+				unity_factor = 0.05
+				army_morale_factor = 0.1
+			}
+		}
+
+		##
+		# Liberty
+		##
+		PDMN_homeland_idea = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_fortify_the_borders
+
+			modifier = {
+				unity_factor = 0.05
+				army_core_attack_factor = 0.15
+				army_core_defence_factor = 0.15
+			}
+		}
+	}
+}

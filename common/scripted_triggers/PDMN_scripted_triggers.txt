@@ -1,0 +1,97 @@
+# Continental Detections
+is_european = {
+    is_on_continent = europe
+}
+is_north_american = {
+    is_on_continent = north_america
+}
+is_south_american = {
+    is_on_continent = south_america
+}
+is_australian = {
+    is_on_continent = australia
+}
+is_african = {
+    is_on_continent = africa
+}
+is_asian = {
+    is_on_continent = asia
+}
+is_middle_eastern = {
+    is_on_continent = middle_east
+}
+
+
+# Resources (use in conjunction with any/every limits)
+can_build_aluminium = {
+    OR = {
+        is_african = yes
+        is_asian = yes
+        is_australian = yes
+        is_south_american = yes
+    }
+}
+can_build_steel = {
+    always = yes
+}
+can_build_oil = {
+    OR = {
+        is_coastal = yes
+        is_middle_eastern = yes
+    }
+}
+can_build_rubber = {
+    OR = {
+        is_african = yes
+        is_asian = yes
+        is_south_american = yes
+    }
+}
+can_build_tungsten = {
+    always = yes
+}
+can_build_chromium = {
+    always = yes
+}
+
+
+# Resources (country level)
+can_have_aluminium = {
+    any_owned_state = {
+        can_build_aluminium = yes
+    }
+}
+can_have_steel = {
+    any_owned_state = {
+        can_build_steel = yes
+    }
+}
+can_have_oil = {
+    any_owned_state = {
+        can_build_oil = yes
+    }
+}
+can_have_rubber = {
+    any_owned_state = {
+        can_build_rubber = yes
+    }
+}
+can_have_tungsten = {
+    any_owned_state = {
+        can_build_tungsten = yes
+    }
+}
+can_have_chromium = {
+    any_owned_state = {
+        can_build_chromium = yes
+    }
+}
+
+
+# USA Triggers
+is_american_state = {
+    has_country_flag = PDMN_american_state
+}
+was_confederate_state = {
+    has_country_flag = PDMN_was_confederate_state
+}

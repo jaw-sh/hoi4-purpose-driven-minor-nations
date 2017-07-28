@@ -1,0 +1,371 @@
+add_namespace = PDMN_news
+
+##
+# Minor Appeals News
+# Individual Results
+##
+news_event = {
+	id = PDMN_news.1
+	title = PDMN_news.1.t
+	desc = PDMN_news.1.d
+	picture = GFX_news_event_generic_factory
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			event_target:sponsor = {
+				clr_country_flag = PDMN_SUP_resource_determined
+				country_event = {
+					id = PDMN_AFAS.4
+					days = 120
+				}
+			}
+		}
+		event_target:sponsored = {
+			random_owned_state = {
+				limit = { can_build_rubber = yes }
+				add_resource = {
+					type = rubber
+					amount = 16
+				}
+			}
+		}
+	}
+
+	option = {
+		name = PDMN_news.1.a
+		trigger = { TAG = event_target:sponsor }
+	}
+	option = {
+		name = PDMN_news.1.b
+		trigger = { TAG = event_target:sponsored }
+	}
+	option = {
+		name = PDMN_news.1.c
+		trigger = { NOT = { OR = { TAG = event_target:sponsored TAG = event_target:sponsor } } }
+	}
+}
+news_event = {
+	id = PDMN_news.2
+	title = PDMN_news.2.t
+	desc = PDMN_news.1.d
+	picture = GFX_news_event_generic_factory
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			event_target:sponsor = {
+				clr_country_flag = PDMN_SUP_resource_determined
+				country_event = {
+					id = PDMN_AFAS.4
+					days = 120
+				}
+			}
+		}
+		event_target:sponsored = {
+			random_owned_state = {
+				limit = { can_build_oil = yes }
+				add_resource = {
+					type = oil
+					amount = 16
+				}
+			}
+		}
+	}
+
+	option = {
+		name = PDMN_news.1.a
+		trigger = { TAG = event_target:sponsor }
+	}
+	option = {
+		name = PDMN_news.1.b
+		trigger = { TAG = event_target:sponsored }
+	}
+	option = {
+		name = PDMN_news.1.c
+		trigger = { NOT = { OR = { TAG = event_target:sponsored TAG = event_target:sponsor } } }
+	}
+}
+news_event = {
+	id = PDMN_news.3
+	title = PDMN_news.3.t
+	desc = PDMN_news.1.d
+	picture = GFX_news_event_generic_factory
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			event_target:sponsor = {
+				clr_country_flag = PDMN_SUP_resource_determined
+				country_event = {
+					id = PDMN_AFAS.4
+					days = 120
+				}
+			}
+		}
+		event_target:sponsored = {
+			random_owned_state = {
+				limit = { can_build_aluminium = yes }
+				add_resource = {
+					type = aluminium
+					amount = 16
+				}
+			}
+		}
+	}
+
+	option = {
+		name = PDMN_news.1.a
+		trigger = { TAG = event_target:sponsor }
+	}
+	option = {
+		name = PDMN_news.1.b
+		trigger = { TAG = event_target:sponsored }
+	}
+	option = {
+		name = PDMN_news.1.c
+		trigger = { NOT = { OR = { TAG = event_target:sponsored TAG = event_target:sponsor } } }
+	}
+}
+news_event = {
+	id = PDMN_news.4
+	title = PDMN_news.4.t
+	desc = PDMN_news.1.d
+	picture = GFX_news_event_generic_factory
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			event_target:sponsor = {
+				clr_country_flag = PDMN_SUP_resource_determined
+				country_event = {
+					id = PDMN_AFAS.4
+					days = 120
+				}
+			}
+		}
+		event_target:sponsored = {
+			random_owned_state = {
+				limit = { can_build_steel = yes }
+				add_resource = {
+					type = steel
+					amount = 16
+				}
+			}
+		}
+	}
+
+	option = {
+		name = PDMN_news.1.a
+		trigger = { TAG = event_target:sponsor }
+	}
+	option = {
+		name = PDMN_news.1.b
+		trigger = { TAG = event_target:sponsored }
+	}
+	option = {
+		name = PDMN_news.1.c
+		trigger = { NOT = { OR = { TAG = event_target:sponsored TAG = event_target:sponsor } } }
+	}
+}
+
+##
+# FDR v. Coughlin
+##
+# USA: Coughlin Suppression Backfires
+news_event = {
+	id = PDMN_news.5
+	title = PDMN_news.5.t
+	desc = PDMN_news.5.d
+	picture = GFX_report_coughlin_rally
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			PDMN_USA_create_christian_front = yes
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.1
+		}
+	}
+
+	option = {
+		name = PDMN_news.5.a
+	}
+}
+# USA: Early Coughlin Suppression Succeeds
+news_event = {
+	id = PDMN_news.6
+	title = PDMN_news.6.t
+	desc = PDMN_news.6.d
+	picture = GFX_report_coughlin_rally
+
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+	immediate = {
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.2
+		}
+	}
+
+	option = {
+		name = PDMN_news.6.a
+	}
+}
+
+
+# Christian Front Civil War
+news_event = {
+	id = PDMN_news.7
+	title = PDMN_news.7.t
+	desc = PDMN_news.7.d
+	picture = GFX_report_coughlin_smash
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	major = yes
+
+	immediate = { # bye charlie
+		hidden_effect = {
+			# This is done here to hide the war declaration.
+			# For some reason the war dec prompt appears before I can change the cosmetic tag of the new civil war entity.
+			# This tidies it up a bit.
+			USA = {
+				set_cosmetic_tag = USA_CF
+				PDMN_USA_create_christian_front = yes
+				remove_ideas = PDMN_USA_charles_coughlin_idea
+				start_civil_war = {
+					ideology = fascism
+					size = 0.40
+					capital = 393
+				}
+				every_enemy_country = {
+					limit = {
+						original_tag = USA
+						has_government = fascism
+					}
+					set_cosmetic_tag = USA_CF
+					create_country_leader = {
+						name = "Charles Coughlin"
+						picture = "Portrait_Charles_Coughlin.dds"
+						expire = "1979.10.27"
+						ideology = rexism
+						traits = {
+							PDMN_likes_germany
+							fascist_sympathies
+							fascist_demagogue
+						}
+					}
+				}
+				set_cosmetic_tag = USA
+			}
+		}
+	}
+	option = {
+		name = PDMN_news.7.a_usa
+		trigger = {
+			ROOT = { TAG = USA }
+		}
+	}
+	option = {
+		name = PDMN_news.7.a_dem_com
+		trigger = {
+			FROM = { has_government = democratic }
+			ROOT = {
+				has_government = communism
+				NOT = { TAG = USA }
+			}
+		}
+	}
+	option = {
+		name = PDMN_news.7.a_dem_dem
+		trigger = {
+			FROM = { has_government = democratic }
+			ROOT = {
+				has_government = democratic
+				NOT = { TAG = USA }
+			}
+		}
+	}
+	option = {
+		name = PDMN_news.7.a_dem_fas
+		trigger = {
+			FROM = { has_government = democratic }
+			ROOT = {
+				has_government = fascism
+				NOT = { TAG = USA }
+			}
+		}
+	}
+	option = {
+		name = PDMN_news.7.a_com_com
+		trigger = {
+			FROM = { has_government = communism }
+			ROOT = {
+				has_government = communism
+				NOT = { TAG = USA }
+			}
+		}
+	}
+	option = {
+		name = PDMN_news.7.a_com_dem
+		trigger = {
+			FROM = { has_government = communism }
+			ROOT = {
+				has_government = democratic
+				NOT = { TAG = USA }
+			}
+		}
+	}
+	option = {
+		name = PDMN_news.7.a_com_fas
+		trigger = {
+			FROM = { has_government = communism }
+			ROOT = {
+				has_government = fascism
+				NOT = { TAG = USA }
+			}
+		}
+	}
+}
+
+news_event = {
+	id = PDMN_news.8
+	title = PDMN_news.8.t
+	desc = PDMN_news.8.d
+	picture = GFX_news_event_usa_funeral
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	major = yes
+
+	option = {
+		name = PDMN_news.8.a
+		trigger = { NOT = { has_country_leader = { name = "Charles Coughlin" } } }
+	}
+	option = {
+		name = PDMN_news.8.a_cf
+		trigger = {
+			has_country_leader = { name = "Charles Coughlin" }
+		}
+	}
+	option = {
+		name = PDMN_news.8.a_fas
+		trigger = { has_government = democratic }
+	}
+}

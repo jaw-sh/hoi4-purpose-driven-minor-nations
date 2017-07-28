@@ -12,9 +12,12 @@ country_event = {
 
 	fire_only_once = yes
 
+	is_triggered_only = yes
+
     # have we conquered something
 	trigger = {
 		is_ai = no
+		is_major = no
 		any_owned_state = {
 			NOT = {
 				is_core_of = ROOT
