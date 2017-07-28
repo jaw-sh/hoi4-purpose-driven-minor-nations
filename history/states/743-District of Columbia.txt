@@ -9,15 +9,15 @@ state={
 	history={
 		owner = USA
 		victory_points = {
-			3957 40
+			13208 40
 		}
 		buildings = {
 			infrastructure = 7
 			industrial_complex = 1
 			dockyard = 1
 			air_base = 6
-			3957 = {
-				naval_base = 1
+			13208 = {
+				naval_base = 4
 
 			}
 		}
@@ -26,6 +26,6 @@ state={
 	}
 
 	provinces={
-		3957
+		13208
 	}
 }
