@@ -1,4 +1,4 @@
-capital = 753
+capital = 358
 
 oob = "states_1936"
 #oob = "XAK_1936"

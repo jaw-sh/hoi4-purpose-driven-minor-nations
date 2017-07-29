@@ -1,25 +1,22 @@
+
 state={
 	id=749
 	name="STATE_749"
-
-	state_category = city
 
 	history={
 		owner = XNX
 		buildings = {
 			infrastructure = 7
+
 		}
 		add_core_of = XNX
-		#victory_points = {
-		#	6732 20
-		#}
 
 	}
-
 
 	provinces={
 		4445 7629 9675
 	}
 	manpower=357000
 	buildings_max_level_factor=1.000
+	state_category=city
 }
