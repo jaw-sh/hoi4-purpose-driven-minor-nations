@@ -1,21 +1,24 @@
-
+﻿
 state={
 	id=745
 	name="STATE_745"
 
 	history={
-		owner = XNX
+		owner = XNH
 		buildings = {
 			infrastructure = 7
 			dockyard = 2
 
 		}
-		add_core_of = XNX
+		add_core_of = XNH
+		victory_points = {
+			3712 5
+		}
 
 	}
 
 	provinces={
-		733 3712 3715 10481 
+		733 3712 3715 10481
 	}
 	manpower=481000
 	buildings_max_level_factor=1.000

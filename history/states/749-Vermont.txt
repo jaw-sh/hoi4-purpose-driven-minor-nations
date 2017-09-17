@@ -1,16 +1,18 @@
-
+﻿
 state={
 	id=749
 	name="STATE_749"
 
 	history={
-		owner = XNX
+		owner = XVT
 		buildings = {
 			infrastructure = 7
 
 		}
-		add_core_of = XNX
-
+		add_core_of = XVT
+		victory_points = {
+			4445 5
+		}
 	}
 
 	provinces={

@@ -1,4 +1,4 @@
-capital = 463
+﻿capital = 463
 
 oob = "states_1936"
 #oob = "XAK_1936"
@@ -123,7 +123,7 @@ set_politics = {
 
 	parties = {
 		democratic = {
-			popularity = 100
+			popularity = 60
 		}
 
 		fascism = {
@@ -131,7 +131,7 @@ set_politics = {
 		}
 
 		communism = {
-			popularity = 0
+			popularity = 10
 		}
 	}
 
@@ -142,13 +142,13 @@ set_politics = {
 }
 
 1939.1.1 = {
-	set_national_unity = 0.7
+	set_national_unity = 0.75
 
 	set_politics = {
 
 		parties = {
 			democratic = {
-				popularity = 100
+				popularity = 60
 			}
 
 			fascism = {
@@ -156,7 +156,7 @@ set_politics = {
 			}
 
 			communism = {
-				popularity = 1
+				popularity = 10
 			}
 		}
 

@@ -56,7 +56,7 @@ ideas = {
 			name = charles_coughlin
 
 			allowed = {
-				original_tag = USA
+				always = yes
 			}
 
 			allowed_civil_war = {
@@ -67,6 +67,27 @@ ideas = {
 
 			traits = {
 				fascist_demagogue
+			}
+		}
+		# Rebel Yell
+		PDMN_USA_rebel_yell = {
+			picture = idea_rebel_yell
+			name = PDMN_USA_rebel_yell
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				conscription_factor = -0.15
+				drift_defence_factor = 0.25
+				unity_factor = -0.1
 			}
 		}
 	}

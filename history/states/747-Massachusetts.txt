@@ -1,23 +1,26 @@
-
+﻿
 state={
 	id=747
 	name="STATE_747"
 
 	history={
-		owner = XNX
+		owner = XMA
 		buildings = {
 			infrastructure = 7
 			dockyard = 2
 
 		}
-		add_core_of = XNX
+		add_core_of = XMA
+		victory_points = {
+			6732 5
+		}
 
 	}
 
 	provinces={
-		715 718 905 908 3710 3906 6732 
+		715 718 905 908 3710 3906 6732
 	}
 	manpower=4355000
 	buildings_max_level_factor=1.000
-	state_category=large_city
+	state_category=city
 }

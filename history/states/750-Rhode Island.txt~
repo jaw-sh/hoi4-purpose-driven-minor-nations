@@ -1,0 +1,21 @@
+state={
+	id=750
+	name="STATE_750"
+	state_category = city
+	history={
+		owner = XRI
+		buildings = {
+			infrastructure = 7
+			dockyard = 2
+		}
+		add_core_of = XRI
+		victory_points = {
+			11830 5
+		}
+	}
+	provinces={
+		11830
+	}
+	manpower=686000
+	buildings_max_level_factor=1.000
+}

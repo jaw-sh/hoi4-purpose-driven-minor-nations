@@ -1,4 +1,4 @@
-capital = 743
+﻿capital = 743
 
 oob = "USA_1936"
 
@@ -230,7 +230,6 @@ set_autonomy = { target = XNM autonomous_state = autonomy_us_state }
 set_autonomy = { target = XNY autonomous_state = autonomy_us_state }
 set_autonomy = { target = XNC autonomous_state = autonomy_us_state }
 set_autonomy = { target = XND autonomous_state = autonomy_us_state }
-set_autonomy = { target = XNX autonomous_state = autonomy_us_state }
 set_autonomy = { target = XOH autonomous_state = autonomy_us_state }
 set_autonomy = { target = XOK autonomous_state = autonomy_us_state }
 set_autonomy = { target = XOR autonomous_state = autonomy_us_state }

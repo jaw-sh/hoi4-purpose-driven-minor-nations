@@ -1,0 +1,30 @@
+
+state={
+	id=744
+	name="STATE_744"
+	manpower = 1808000
+
+	state_category = city
+
+	history={
+		owner = XWV
+		buildings = {
+			infrastructure = 4
+			industrial_complex = 2
+		}
+		add_core_of = XWV
+		victory_points = {
+			7588 5
+		}
+		1939.1.1 = {
+			buildings = {
+				industrial_complex = 4
+			}
+		}
+
+	}
+
+	provinces={
+		801 3941 3975 4627 6850 6958 6971 7466 7588 7646 9923 10441 11888
+	}
+}

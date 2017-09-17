@@ -1,0 +1,25 @@
+
+state={
+	id=748
+	name="STATE_748"
+
+	history={
+		owner = XCT
+		buildings = {
+			infrastructure = 7
+			dockyard = 2
+
+		}
+		add_core_of = XCT
+		victory_points = {
+			9850 5
+		}
+	}
+
+	provinces={
+		6909 9832 9847 9850 13207
+	}
+	manpower=1672000
+	buildings_max_level_factor=1.000
+	state_category=city
+}
