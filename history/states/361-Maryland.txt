@@ -1,4 +1,5 @@
-﻿
+﻿# Maryland
+# D.C. is in 743.
 state={
 	id=361
 	name="STATE_361"
@@ -6,10 +7,10 @@ state={
 	history={
 		owner = XMD
 		victory_points = {
-			3957 10 
+			3957 10
 		}
 		victory_points = {
-			6984 5 
+			6984 5
 		}
 		buildings = {
 			infrastructure = 7
@@ -26,7 +27,7 @@ state={
 	}
 
 	provinces={
-		3957 6823 6892 6929 6984 9786 11892 13206 
+		3957 6823 6892 6929 6984 9786 11892 13206
 	}
 	manpower=1745000
 	buildings_max_level_factor=1.000

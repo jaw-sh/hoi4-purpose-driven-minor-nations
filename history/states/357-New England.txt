@@ -1,4 +1,5 @@
-﻿
+﻿# "New England"
+# Reduced to just Maine.
 state={
 	id=357
 	name="STATE_357"

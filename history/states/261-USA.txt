@@ -1,4 +1,5 @@
-﻿# This is Ohio
+# Paradox named this file "USA" but it's just Ohio.
+# Close enough.
 state={
 	id=261
 	name="STATE_261"
