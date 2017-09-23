@@ -144,22 +144,25 @@ set_politics = {
 1939.1.1 = {
 	set_national_unity = 0.75
 
-	parties = {
-		democratic = {
-			popularity = 80
+	set_politics = {
+
+		parties = {
+			democratic = {
+				popularity = 80
+			}
+
+			fascism = {
+				popularity = 10
+			}
+
+			communism = {
+				popularity = 10
+			}
 		}
 
-		fascism = {
-			popularity = 10
-		}
-
-		communism = {
-			popularity = 10
-		}
+		ruling_party = democratic
+		last_election = "1936.11.3"
+		election_frequency = 48
+		elections_allowed = yes
 	}
-
-	ruling_party = democratic
-	last_election = "1936.11.3"
-	election_frequency = 48
-	elections_allowed = yes
 }
