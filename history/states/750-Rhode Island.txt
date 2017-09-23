@@ -1,4 +1,4 @@
-﻿state={
+state={
 	id=750
 	name="STATE_750"
 	state_category = city

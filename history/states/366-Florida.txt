@@ -1,4 +1,4 @@
-﻿# Florida
+# Florida
 state={
 	id=366
 	name="STATE_366"
