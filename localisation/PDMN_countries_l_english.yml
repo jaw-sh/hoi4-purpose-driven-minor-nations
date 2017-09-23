@@ -1,4 +1,4 @@
-l_english:
+ï»¿l_english:
  XAL_fascism:0 "Centralized Alabama"
  XAL_fascism_DEF:0 "Centralized Alabama"
  XAL_fascism_ADJ:0 "Alabamian"
@@ -308,8 +308,8 @@ l_english:
  XNM_neutrality:0 "New Mexico"
  XNM_neutrality_DEF:0 "New Mexico"
  XNM_neutrality_ADJ:0 "New Mexican"
- XNM_communism:0 "República Popular de Nuevo México"
- XNM_communism_DEF:0 "The República Popular de Nuevo México"
+ XNM_communism:0 "RepÃºblica Popular de Nuevo MÃ©xico"
+ XNM_communism_DEF:0 "The RepÃºblica Popular de Nuevo MÃ©xico"
  XNM_communism_ADJ:0 "New Mexican"
  XNY_fascism:0 "Empire State"
  XNY_fascism_DEF:0 "The Empire State"
