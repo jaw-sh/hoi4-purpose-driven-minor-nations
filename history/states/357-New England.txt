@@ -1,5 +1,4 @@
-# "New England"
-# Reduced to just Maine.
+
 state={
 	id=357
 	name="STATE_357"
@@ -24,7 +23,7 @@ state={
 	}
 
 	provinces={
-	   1282 1338 1619 3732 4287 6719 7462 10318 10247 12202 12221 12459
+		1282 1338 1619 3732 4287 6719 7462 10318 10247 12202 12221 12459
 	}
 	manpower=840000
 	buildings_max_level_factor=1.000
