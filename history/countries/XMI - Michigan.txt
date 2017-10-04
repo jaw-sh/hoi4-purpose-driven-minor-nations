@@ -16,7 +16,7 @@ add_ideas = {
 	undisturbed_isolation
 	disarmed_nation
 	free_trade
-
+	PDMN_USA_charles_coughlin_idea
 }
 
 set_politics = {

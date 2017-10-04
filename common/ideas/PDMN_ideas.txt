@@ -53,7 +53,7 @@ ideas = {
 
 		# Home of the Free
 		# Buffed to completely negate ideological drift.
-		home_of_the_free = {
+		PDMN_home_of_the_free = {
 			picture = generic_pp_unity_bonus
 			allowed = {
 				always = no
@@ -84,6 +84,7 @@ ideas = {
 			removal_cost = -1
 			traits = {
 				fascist_demagogue
+				autonomy_gain = 0.25
 			}
 		}
 		# Rebel Yell
