@@ -15,7 +15,7 @@ add_ideas = {
 	undisturbed_isolation
 	disarmed_nation
 	free_trade
-	home_of_the_free
+
 }
 
 set_politics = {

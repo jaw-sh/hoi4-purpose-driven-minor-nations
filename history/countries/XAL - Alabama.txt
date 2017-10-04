@@ -2,6 +2,7 @@
 oob = "states_1936"
 
 set_country_flag = PDMN_american_state
+set_country_flag = PDMN_was_confederate_state
 
 set_research_slots = 2
 set_technology = {
@@ -15,7 +16,7 @@ add_ideas = {
 	undisturbed_isolation
 	disarmed_nation
 	free_trade
-	home_of_the_free
+	PDMN_rebel_yell
 }
 
 set_politics = {
