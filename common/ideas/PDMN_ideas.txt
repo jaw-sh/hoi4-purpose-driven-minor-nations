@@ -84,7 +84,7 @@ ideas = {
 			removal_cost = -1
 			traits = {
 				fascist_demagogue
-				autonomy_gain = 0.25
+				PDMN_secessionist
 			}
 		}
 		# Rebel Yell

@@ -1,4 +1,4 @@
-division_template = {
+﻿division_template = {
 	name = "National Guard Division"  	# Standard formation for NG divisions through late 1940
 
 	regiments = {

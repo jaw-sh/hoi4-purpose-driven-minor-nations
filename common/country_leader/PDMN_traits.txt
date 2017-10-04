@@ -6,7 +6,15 @@ leader_traits = {
             id = "GER"
             value = 200
         }
+        ai_will_do = {
+            factor = 1
+        }
+    }
 
+    PDMN_secessionist = {
+        random = no
+        autonomy_gain = 1
+        unity_factor = 0.10
         ai_will_do = {
             factor = 1
         }
