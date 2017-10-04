@@ -16,7 +16,7 @@ add_ideas = {
 	undisturbed_isolation
 	disarmed_nation
 	free_trade
-	PDMN_rebel_yell
+	PDMN_USA_rebel_yell
 }
 
 set_politics = {
