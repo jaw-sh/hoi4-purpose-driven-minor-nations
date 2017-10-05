@@ -1,4 +1,4 @@
-﻿# Louisiana
+# Louisiana
 state={
 	id=371
 	name="STATE_371"

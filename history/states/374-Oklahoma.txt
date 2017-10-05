@@ -1,4 +1,4 @@
-﻿# Oklahoma
+# Oklahoma
 state={
 	id=374
 	name="STATE_374"

@@ -1,5 +1,5 @@
-# New York
-﻿state={
+
+state={
 	id=358
 	name="STATE_358"
 	manpower = 13380000

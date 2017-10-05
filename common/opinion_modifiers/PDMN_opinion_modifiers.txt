@@ -9,6 +9,7 @@
 # trade = yes/no
 
 opinion_modifiers = {
+	# League of Nations Ethiopian Help
 	PDMN_denied_help = {
 		value = -5
 		years = 1

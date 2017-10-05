@@ -50,42 +50,56 @@ ideas = {
 		##
 		# USA
 		##
+
+		# Home of the Free
+		# Buffed to completely negate ideological drift.
+		PDMN_home_of_the_free = {
+			picture = generic_pp_unity_bonus
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				has_government = democratic
+			}
+			removal_cost = -1
+			rule = {
+				can_join_opposite_factions = no
+				can_create_factions = yes
+			}
+			modifier = {
+				drift_defence_factor = 1
+				ai_badass_factor = 0.03 # cares for 3% of normal threat
+			}
+		}
 		# Charles Coughlin (National Spirit)
 		PDMN_USA_charles_coughlin_idea = {
 			picture = charles_coughlin
 			name = charles_coughlin
-
 			allowed = {
 				always = yes
 			}
-
 			allowed_civil_war = {
 				always = yes
 			}
-
 			removal_cost = -1
-
 			traits = {
 				fascist_demagogue
+				PDMN_secessionist
 			}
 		}
 		# Rebel Yell
 		PDMN_USA_rebel_yell = {
 			picture = idea_rebel_yell
 			name = PDMN_USA_rebel_yell
-
 			allowed = {
 				always = yes
 			}
-
 			allowed_civil_war = {
 				always = yes
 			}
-
 			removal_cost = -1
-
 			modifier = {
-				conscription_factor = -0.15
+				conscription_factor = -0.10
 				drift_defence_factor = 0.25
 				unity_factor = -0.1
 			}

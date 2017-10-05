@@ -1,4 +1,7 @@
 leader_traits = {
+    ##
+    # AI
+    ##
     PDMN_likes_germany = {
         random = no
         ai_strategy = {
@@ -6,7 +9,30 @@ leader_traits = {
             id = "GER"
             value = 200
         }
+        ai_will_do = {
+            factor = 1
+        }
+    }
 
+    ##
+    # Increases Autonomy
+    ##
+    PDMN_secessionist = {
+        random = no
+        autonomy_gain = 1
+        unity_factor = 0.10
+        ai_will_do = {
+            factor = 1
+        }
+    }
+
+    ##
+    # Converts PP into Army XP
+    ##
+    PDMN_weaponsmith {
+        random = no
+        experience_gain_army = 0.2
+        political_power_factor = -0.2
         ai_will_do = {
             factor = 1
         }

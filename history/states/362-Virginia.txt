@@ -1,4 +1,4 @@
-﻿# Virginia (West Virginia removed)
+# Virginia (West Virginia removed)
 state={
 	id=362
 	name="STATE_362"

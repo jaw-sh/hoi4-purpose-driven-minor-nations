@@ -1,4 +1,4 @@
-###########################
+﻿###########################
 # Purpose-Driven Minor Nations Mod Events
 ###########################
 add_namespace = PDMN

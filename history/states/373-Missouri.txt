@@ -1,4 +1,4 @@
-﻿# Missouri
+# Missouri
 state={
 	id=373
 	name="STATE_373"

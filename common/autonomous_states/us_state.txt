@@ -25,42 +25,61 @@ autonomy_state = {
 
 	ai_subject_wants_higher = {
 		factor = 1.0
+		modifier = { # Historically, states are loyal.
+			factor = 0.5
+			is_historical_focus_on = yes
+		}
+		modifier = { # Union states are more loyal.
+			factor = 0.5
+			was_union_state = yes
+		}
+		modifier = { # Confederate states are less loyal.
+			factor = 2.0
+			was_confederate_state = yes
+		}
+		modifier = { # Ideological problems exasperbate freedom.
+			factor = 2.0
+			is_ideologically_different_from_overlord = no
+		}
+		# Federal unity is the main barometer of if a state wants to stay or not.
 		modifier = {
-			factor = 0
-			#NOT = {
-			#	was_confederate_state = yes
-			#	if = {
-			#		limit = { is_historical_focus_on = no }
-			#	}
-			#}
+			factor = 0.0
+			OVERLORD = { has_national_unity > 70 }
+		}
+		modifier = {
+			factor = 1.0
+			OVERLORD = { has_national_unity > 49 }
+		}
+		modifier = {
+			factor = 2.0
+			OVERLORD = { has_national_unity < 50 }
 		}
 	}
-
 	ai_overlord_wants_lower = {
 		factor = 0.0
 	}
-
 	ai_overlord_wants_garrison = {
 		# try to keep some logical garrison decision making going on
 		OR = {
 			any_owned_state = {
 				is_coastal = yes
 			}
+			ai_liberate_desire = {
+				target = ROOT
+				value > 0
+			}
 		}
 	}
 
 	allowed = {
-		has_dlc = "Together for Victory"
-		tag = USA
+		is_american_state = yes
+		is_subject_of = USA
 	}
-
 	can_take_level = {
 		# trigger here
 	}
-
 	can_lose_level = {
 		NOT = { # don't tread on me
-			is_american_state = yes
 			is_subject_of = USA
 		}
 	}

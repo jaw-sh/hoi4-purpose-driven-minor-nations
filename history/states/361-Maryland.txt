@@ -1,4 +1,4 @@
-﻿# Maryland
+# Maryland
 # D.C. is in 743.
 state={
 	id=361

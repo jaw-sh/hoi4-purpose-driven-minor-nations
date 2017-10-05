@@ -1,4 +1,4 @@
-﻿# North Carolina
+# North Carolina
 state={
 	id=363
 	name="STATE_363"

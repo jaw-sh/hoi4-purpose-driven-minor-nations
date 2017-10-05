@@ -195,7 +195,7 @@ add_ideas = {
 	great_depression
 	disarmed_nation
 	free_trade
-	home_of_the_free
+	PDMN_home_of_the_free
 }
 
 # DIPLOMACY

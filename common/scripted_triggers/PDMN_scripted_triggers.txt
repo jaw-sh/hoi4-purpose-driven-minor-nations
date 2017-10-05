@@ -88,10 +88,44 @@ can_have_chromium = {
 }
 
 
+# Overlord Interactions
+is_ideologically_different_from_overlord = {
+    if = {
+        is_puppet = yes
+        or = {
+            if = { OVERLORD = { has_government = communism }
+                or = {
+                    has_government = fascism
+                    has_government = democracy
+                }
+            }
+            if = { OVERLORD = { has_government = fascism }
+                or = {
+                    has_government = fascism
+                    has_government = communism
+                }
+            }
+            if = { OVERLORD = { has_government = democracy }
+                or = {
+                    has_government = communism
+                    has_government = democracy
+                }
+            }
+        }
+    }
+}
+
+
 # USA Triggers
 is_american_state = {
     has_country_flag = PDMN_american_state
 }
+is_american_territory = {
+    has_country_flag = PDMN_american_territory
+}
 was_confederate_state = {
     has_country_flag = PDMN_was_confederate_state
+}
+was_union_state = {
+    has_country_flag = PDMN_was_union_state
 }
