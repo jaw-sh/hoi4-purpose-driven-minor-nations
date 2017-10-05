@@ -1,0 +1,16 @@
+ideas = {
+    PDMN_generic_weaponsmith = {
+        allowed = {
+            always = yes
+        }
+        available = {
+            always = yes
+        }
+        traits = {
+            PDMN_weaponsmith
+        }
+        ai_will_do = {
+            factor = 0
+        }
+    }
+}
